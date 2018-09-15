@@ -112,22 +112,23 @@ function sumArray(sumArr) { //eslint-disable-line
   // will need to loop through an array (length) and sums all of the numbers in that array.
   // sum + = sumArr[i];
   var newSumArr = sumArr;
-  console.log('newSumArr = ' + newSumArr);
+  // console.log('newSumArr = ' + newSumArr);
   if(newSumArr.length > 1){
-    for(var i = 0; i < newSumArr.length-2; i++){
+    for(var i = 0; i <= newSumArr.length-2; i++){
       // sum two elements and put the sum at the adjacent index to i so you can 
       // sum the next two and keep a running total. 
-      var newSum = sum(newSumArr[i], newSumArr[i+1]);
+      var newSum = sum(newSumArr[i], newSumArr[i+1])[0];
       newSumArr[i+1] = newSum;
-      console.log('newSumArr = ' + newSumArr);
+      // console.log('newSumArr revised looks like = ' + newSumArr);
     }
   }
   // grab the last element in the array (that holds the total sum)
-  var finalSum = newSumArr[newSumArr.length-1];
+  var finalSum = newSumArr.pop();
   console.log('final sum is ' + finalSum);
+  console.log('sumArr sum is ' + sumArr);
 
   // create summary string using the variables that we've generated
-  var arraySummary = sumArr + ' was passed in as an array of numbers, and ' + finalSum + 'is their sum.';
+  var arraySummary = sumArr + ' was passed in as an array of numbers, and ' + finalSum + ' is their sum.';
 
   return [finalSum, arraySummary];
 }
