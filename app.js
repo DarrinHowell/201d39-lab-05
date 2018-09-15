@@ -33,11 +33,24 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiply(a, b) { //eslint-disable-line
+
+  var product = a * b;
+  var productArray = [product, 'The product of ' + a + ' and ' + b + ' is ' + product + '.'];
+  return productArray;
+
   return [];
+  
 }
 
+// var newArr = multiply(5, 9);
+// console.log(newArr);
+
 // Here is the test for multiply(); uncomment it to run it
+
+testMultiply(5,9);
+
 //testMultiply();
+
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
