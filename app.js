@@ -39,7 +39,7 @@ function multiply(a, b) { //eslint-disable-line
   return productArray;
 
   return [];
-  
+
 }
 
 // var newArr = multiply(5, 9);
@@ -67,8 +67,8 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-  // first element = sum of variables. 
-  // second element = product of variables. 
+  // first element = sum of variables.
+  // second element = product of variables.
   // 3 and 4 are messages that incorporate the variables that we create w/ above
 
   // summing a, b, and c without arithmetic
@@ -88,7 +88,7 @@ function sumAndMultiply(a, b, c) { //eslint-disable-line
 }
 
 //var sumAndMultiplyArray = sumAndMultiply(4, 7, 5);
-//console.log(sumAndMultiplyArray); 
+//console.log(sumAndMultiplyArray);
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
 testSumAndMultiply(4,7,5);
@@ -109,8 +109,34 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
+  // will need to loop through an array (length) and sums all of the numbers in that array.
+  // sum + = sumArr[i];
+  var newSumArr = sumArr;
+  console.log('newSumArr = ' + newSumArr);
+  if(newSumArr.length > 1){
+    for(var i = 0; i < newSumArr.length-2; i++){
+      // sum two elements and put the sum at the adjacent index to i so you can 
+      // sum the next two and keep a running total. 
+      var newSum = sum(newSumArr[i], newSumArr[i+1]);
+      newSumArr[i+1] = newSum;
+      console.log('newSumArr = ' + newSumArr);
+    }
+  }
+  // grab the last element in the array (that holds the total sum)
+  var finalSum = newSumArr[newSumArr.length-1];
+  console.log('final sum is ' + finalSum);
 
+  // create summary string using the variables that we've generated
+  var arraySummary = sumArr + ' was passed in as an array of numbers, and ' + finalSum + 'is their sum.';
+
+  return [finalSum, arraySummary];
 }
+
+// will need to play with text to see how to generate that list of numbes. Either show that array
+// or grab each number and then write the sum.
+
+var newSummedArray = sumArray(testArray);
+console.log(newSummedArray);
 
 // Here is the test for sumArray(); uncomment it to run it
 
