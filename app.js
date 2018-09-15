@@ -67,11 +67,31 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
+  // first element = sum of variables. 
+  // second element = product of variables. 
+  // 3 and 4 are messages that incorporate the variables that we create w/ above
+
+  // summing a, b, and c without arithmetic
+  var sum1 = sum(a,b)[0];
+  var overallSum = sum(sum1, c)[0];
+
+  // multiplying a, b, and c without arithmetic
+  var product1 = multiply(a, b)[0];
+  var overallProduct = multiply(product1, c)[0];
+
+  // creating text summaries
+  var sumSummary = a + ' and ' + b + ' and ' + c + ' sum to ' + overallSum + '.';
+  var productSummary = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + overallProduct + '.';
+
+  return [overallSum, overallProduct, sumSummary, productSummary];
 
 }
 
+//var sumAndMultiplyArray = sumAndMultiply(4, 7, 5);
+//console.log(sumAndMultiplyArray); 
+
 // Here is the test for sumAndMultiply(); uncomment it to run it
-// testSumAndMultiply(4,7,5);
+testSumAndMultiply(4,7,5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
