@@ -38,8 +38,6 @@ function multiply(a, b) { //eslint-disable-line
   var productArray = [product, 'The product of ' + a + ' and ' + b + ' is ' + product + '.'];
   return productArray;
 
-  return [];
-
 }
 
 // var newArr = multiply(5, 9);
@@ -109,39 +107,43 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
-  // will need to loop through an array (length) and sums all of the numbers in that array.
-  // sum + = sumArr[i];
-  var newSumArr = sumArr;
-  // console.log('newSumArr = ' + newSumArr);
-  if(newSumArr.length > 1){
-    for(var i = 0; i <= newSumArr.length-2; i++){
-      // sum two elements and put the sum at the adjacent index to i so you can 
-      // sum the next two and keep a running total. 
-      var newSum = sum(newSumArr[i], newSumArr[i+1])[0];
-      newSumArr[i+1] = newSum;
-      // console.log('newSumArr revised looks like = ' + newSumArr);
+
+  var runningSum = 0;
+
+  // if the array has two elements in it, loop through and try to sum all elements
+  if(sumArr.length > 1){
+
+    // loop through array and stop at the secod to last element
+    for(var i = 0; i <= sumArr.length-2; i++){
+
+      // if you're on the first element, grab the first element of the array
+      if(i === 0){
+        runningSum += sum(sumArr[i], sumArr[i+1])[0];
+        console.log('running sum at the first pass is now ', runningSum);
+
+      // if you've moved past the first element, add the rest of the array to running sum
+      } else {
+        runningSum = sum(runningSum, sumArr[i+1])[0];
+        console.log('running sum is now ', runningSum);
+      }
     }
+
+    var arraySummary = sumArr + ' was passed in as an array of numbers, and ' + runningSum + ' is their sum.';
+
+    return [runningSum, arraySummary];
   }
-  // grab the last element in the array (that holds the total sum)
-  var finalSum = newSumArr.pop();
-  console.log('final sum is ' + finalSum);
-  console.log('sumArr sum is ' + sumArr);
 
-  // create summary string using the variables that we've generated
-  var arraySummary = sumArr + ' was passed in as an array of numbers, and ' + finalSum + ' is their sum.';
-
-  return [finalSum, arraySummary];
 }
 
 // will need to play with text to see how to generate that list of numbes. Either show that array
 // or grab each number and then write the sum.
 
-var newSummedArray = sumArray(testArray);
-console.log(newSummedArray);
+// var newSummedArray = sumArray(testArray);
+// console.log(newSummedArray);
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
