@@ -159,11 +159,37 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
+  var runningProduct = 0;
 
+  // if the array has two elements in it, loop through and try to sum all elements
+  if(multArr.length > 1){
+
+    // loop through array and stop at the secod to last element
+    for(var i = 0; i <= multArr.length-2; i++){
+
+      // if you're on the first element, grab the first element of the array
+      if(i === 0){
+        runningProduct += multiply(multArr[i], multArr[i+1])[0];
+        console.log('running sum at the first pass is now ', runningProduct);
+
+      // if you've moved past the first element, add the rest of the array to running sum
+      } else {
+        runningProduct = multiply(runningProduct, multArr[i+1])[0];
+        console.log('running sum is now ', runningProduct);
+      }
+    }
+
+    var productArraySummary = 'The numbers ' + multArr + ' have a product of ' + runningProduct + '.';
+
+    return [runningProduct, productArraySummary];
+  }
 }
 
+// var newProductArr = multiplyArray(testArray);
+// console.log(newProductArr);
+
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop.
 
